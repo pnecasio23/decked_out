@@ -1,0 +1,77 @@
+Start;
+Menu;
+switch(select) {
+  case 1:
+    generateDungeon();
+    if (hasKey) {
+      algorithm for dungeon generation;
+      teleport player to dungeon;
+      move();
+      checkCompass();
+      giveToken();
+      checkHealth();
+      exitDungeon();
+    } else {
+      No key!
+    }
+    break;
+  case 2:
+    trade();
+    switch (item) {
+      case "coin":
+        if (money >= 2) {
+          givePlayer(food);
+        } else if (money >= 10) {
+          givePlayer(potion);
+        } else if (money >= 15) {
+          givePlayer(weapon);
+        }
+        break;
+      case "artifact":
+        if (artifact >= 3) {
+          givePlayer(artifact);
+          artifact -= 3;
+        } else {
+          Not enough artifacts!
+        }
+        break;
+      case "tier 1 cards":
+        if (tierIcards >= 3) {
+          givePlayer(card);
+          tierIcards -= 3;
+        } else {
+          Not enough cards!
+        }
+        break;
+      case "tier 2 cards":
+        if (tierIIcards >= 3) {
+          givePlayer(tierIIIcard);
+          tierIIcards -= 3;
+        } else {
+          Not enough cards!
+        }
+        break;
+    }
+    break;
+  case 3:
+    inventory();
+    switch (action) {
+      case "throw":
+        throw();
+        break;
+      case "consume":
+        consume();
+        break;
+      case "equip":
+        equip(armor);
+        break;
+      case "trade":
+        trade(item);
+        break;
+    }
+    break;
+  case 4:
+    exit();
+    break;
+    break;
+}
